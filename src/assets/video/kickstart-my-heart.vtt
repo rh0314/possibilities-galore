@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:02.000 --> 00:00:30.999 line:-2 size:100%
+This is where you can add closed captioning or subtitles...
+
+2
+00:00:31.000 --> 00:00:59.999 line:-2 size:100%
+You can add as many lines as you want
+
+3
+00:01:00.000 --> 00:01:59.999 line:-3 size:25%
+Just edit the .vtt file
+
+4
+00:01:00.000 --> 00:01:59.999 line:-2 size:25%
+(like this one, found in the assets directory of the project.)

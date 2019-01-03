@@ -1,0 +1,65 @@
+<div>
+    <div class="vg-player-container">
+        <vg-player (onPlayerReady)="onPlayerReady($event)">
+            <vg-overlay-play
+             target="videoDisplay"></vg-overlay-play>
+            <vg-buffering></vg-buffering>
+
+            <vg-scrub-bar style="pointer-events: none;" [vgSlider]="false">
+                <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+            </vg-scrub-bar>
+
+            <vg-controls>
+                <!-- [ngClass]="{'vg-play-override': (vp.api.state === 'paused')}" -->
+                <vg-play-pause></vg-play-pause>
+                <!-- <vg-playback-button></vg-playback-button> -->
+
+                <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+                <!-- <vg-time-display vgProperty="left" vgFormat="-mm:ss"></vg-time-display> -->
+                <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+
+                <vg-track-selector></vg-track-selector>
+                <vg-mute></vg-mute>
+                <vg-volume></vg-volume>
+
+                <vg-fullscreen></vg-fullscreen>
+            </vg-controls>
+
+
+
+
+            <!-- Can use in video tag:  autoplay -->
+            <video [vgMedia]="media" #media id="videoDisplay" preload="auto" crossorigin autoplay>
+                <source src="../../assets/video/kickstart-my-heart.mp4" type="video/mp4">
+                <source src="../../assets/video/wild-side.mp4" type="video/mp4">
+                <source src="../../assets/video/too-young-to-fall-in-love.mp4" type="video/mp4">
+
+                <track kind="subtitles" label="English" src="../../assets/video/kickstart-my-heart.vtt" srclang="en"
+                    default>
+            </video>
+        </vg-player>
+    </div>
+    <div class="vg-player-info">
+        <table class="settings-table">
+            <tr>
+                <td>api.canPlay</td>
+                <td>api.isWaiting</td>
+                <td>api.state</td>
+                <td>api.textTracks</td>
+                <td> </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>{{ vp ? vp.api.canPlay : null}}</td>
+                <td><span>{{vp.api.isWaiting}}</span></td>
+                <td><span>{{vp.api.state}}</span></td>
+                <td><span>
+                        <pre>{{vp.api.textTracks | json}}</pre></span></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
